@@ -12,12 +12,16 @@ const config: Config = {
       screens: {
         '4xs': '160px',
         // => @media (min-width: 160px) { ... }
+        
         '3xs': '240px',
         // => @media (min-width: 240px) { ... }
+
         '2xs': '320px',
         // => @media (min-width: 320px) { ... }
+
         'xs': '480px',
         // => @media (min-width: 480px) { ... }
+
         'sm': '640px',
         // => @media (min-width: 640px) { ... }
   
