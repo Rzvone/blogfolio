@@ -31,7 +31,7 @@ const Footer = () => {
               className='hover:scale-90 transition-all duration-500 ease-in-out'
             />
           </Link>
-          <Link href='https://www.instagram.com/roggorzv/' draggable={false} target='_blank'>
+          <Link href='https://www.instagram.com/roggoraz/' draggable={false} target='_blank'>
             <Image 
               src='/icons/instagram.png'
               width={30}
