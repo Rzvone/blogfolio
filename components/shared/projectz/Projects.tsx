@@ -1,5 +1,5 @@
 'use client'
-import { projects } from '@/constants/projects';
+import { projectsData } from '@/constants/projectsData';
 import { Button } from 'flowbite-react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -24,7 +24,7 @@ const Projectz = () => {
             </h2>
         </div>
         <div className='flex h-full flex-col gap-12 items-center'>
-            {projects.slice(0, visibleProjects).map((project, i) => (
+            {projectsData.slice(0, visibleProjects).map((project, i) => (
                 <div key={i}>
                     <Link
                         href={{
@@ -55,7 +55,7 @@ const Projectz = () => {
                     </Link>
                 </div>
             ))}
-            {visibleProjects < projects.length && (
+            {visibleProjects < projectsData.length && (
                 <div className='flex justify-center'>
                     <Button
                         onClick={showMoreProjects}

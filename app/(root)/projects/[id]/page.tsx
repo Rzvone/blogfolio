@@ -13,9 +13,9 @@ interface searchParamsTypes {
 
 const ProjectFolio = ({ searchParams }: { searchParams: searchParamsTypes }) => {
 
-  const post = searchParams
+  const project = searchParams
 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-between p-24">{post.title}</div>
+    <div className="flex min-h-screen flex-col items-center justify-between p-24">{project.title}</div>
   )
 }
