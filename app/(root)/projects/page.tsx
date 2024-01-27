@@ -1,8 +1,10 @@
-import React from 'react'
+import Projectz from "@/components/shared/projectz/Projects"
 
 const Projects = () => {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-between p-24">Projects</div>
+    <div className="flex min-h-screen flex-col items-center justify-between p-24">
+      <Projectz />
+    </div>
   )
 }
 
