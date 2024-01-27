@@ -11,7 +11,7 @@ const Footer = () => {
           <h6>&copy; Copyright 2024</h6>
         </div>
         <div className='flex flex-row gap-3 4xs:items-center 4xs:justify-center 4xs:mx-auto'>
-          <Link href='https://www.facebook.com/BBRoggo' draggable={false}>
+          <Link href='https://www.facebook.com/BBRoggo' draggable={false} target='_blank'>
             <Image 
               src='/icons/facebook.png'
               width={30}
@@ -21,7 +21,7 @@ const Footer = () => {
               className='hover:scale-90 transition-all duration-500 ease-in-out'
             />
           </Link>
-          <Link href='https://github.com/Rzvone' draggable={false}>
+          <Link href='https://github.com/Rzvone' draggable={false} target='_blank'>
             <Image 
               src='/icons/github.png'
               width={30}
@@ -31,7 +31,7 @@ const Footer = () => {
               className='hover:scale-90 transition-all duration-500 ease-in-out'
             />
           </Link>
-          <Link href='#' draggable={false}>
+          <Link href='#' draggable={false} target='_blank'>
             <Image 
               src='/icons/instagram.png'
               width={30}
@@ -41,7 +41,7 @@ const Footer = () => {
               className='hover:scale-90 transition-all duration-500 ease-in-out'
             />
           </Link>
-          <Link href='https://www.linkedin.com/in/razvan-bobonea-446200139/' draggable={false}>
+          <Link href='https://www.linkedin.com/in/razvan-bobonea-446200139/' draggable={false} target='_blank'>
             <Image 
               src='/icons/linkedin.png'
               width={30}
