@@ -18,7 +18,7 @@ const Header = () => {
     */
   }
   return (
-    <Navbar className="flex flex-row bg-[#130019] text-white fixed w-full z-[1000] select-none">
+    <Navbar className="flex flex-row bg-[#130019] text-white fixed w-full z-[1000] shadow-xl select-none">
       <Link
         href="/"
         className="font-semibold 2xs:text-xl md:text-4xl p-2"

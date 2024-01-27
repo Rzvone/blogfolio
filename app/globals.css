@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-body::-webkit-scrollbar {
+
+body::-webkit-scrollbar,
+:root::-webkit-scrollbar {
     display: none;
+    
 }
+
+body, :root {
+    scrollbar-width: none;
+}
+
