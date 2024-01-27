@@ -11,7 +11,7 @@ interface searchParamsTypes {
     publishDate: string;
 }
 
-const BlogFolio = ({ searchParams }: { searchParams: searchParamsTypes }) => {
+const ProjectFolio = ({ searchParams }: { searchParams: searchParamsTypes }) => {
 
   const post = searchParams
 
