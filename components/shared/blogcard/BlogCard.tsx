@@ -9,7 +9,7 @@ const BlogCard = ({ post }: any) => {
       <div className="w-[800px] h-[450px] relative">
         <Image
           src="/images/developer.webp"
-          fill
+          layout="fill"
           alt="blog image"
           objectFit="cover"
         />
