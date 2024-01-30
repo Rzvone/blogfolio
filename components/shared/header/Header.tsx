@@ -8,8 +8,17 @@ import {
 } from "flowbite-react";
 import Link from "next/link";
 import useMenuActive from "@/hooks/useMenuActive/useMenuActive";
+import { User } from "@prisma/client";
+import { useRouter } from "next/navigation";
+import { signOut } from "next-auth/react";
+import Image from "next/image";
+import { useState } from "react";
 
-const Header = () => {
+interface HeaderProps {
+  user: User;
+}
+
+const Header: React.FC<HeaderProps> = ({ user }) => {
   {
     /* 
         Used flowbite-react for the navbar, because it's a lot easier to make a responsive navbar with it.
@@ -17,6 +26,10 @@ const Header = () => {
 
     */
   }
+
+  const [openUserMenu, setOpenUserMenu] = useState(false);
+  const router = useRouter();
+
   return (
     <Navbar className="flex flex-row bg-[#130019] text-white fixed w-full z-[1000] shadow-xl select-none">
       <Link
@@ -27,11 +40,55 @@ const Header = () => {
         raz<span className="text-green-700">van</span>
       </Link>
       <div className="flex flex-row gap-5 md:order-2 items-center justify-center">
-        <Link href="/sign-in" draggable={false}>
-          <Button className="hover:text-black" gradientDuoTone="greenToBlue">
-            Sign in
-          </Button>
-        </Link>
+        {!user && (
+          <Link href="/access" draggable={false}>
+            <Button className="hover:text-black" gradientDuoTone="greenToBlue">
+              Sign in
+            </Button>
+          </Link>
+        )}
+        {user && (
+          <div className="flex gap-5 items-center flex-1 justify-end max-md:hidden">
+            <h1>{user.name}</h1>
+            <Image
+              src={user.image as string}
+              width={50}
+              height={50}
+              alt="user image"
+              className="rounded-full border-2 cursor-pointer hover:border-green-700"
+              onClick={() => setOpenUserMenu(!openUserMenu)}
+            />
+          </div>
+        )}
+
+        {openUserMenu && (
+          <ul className="z-10 absolute right-12 top-[70px] w-48 bg-white shadow-md rounded-md p-4">
+            {user.email === "bobonea.razvan.ctin@gmail.com" && (
+              <>
+                <Link href={"/create"} onClick={() => setOpenUserMenu(false)}>
+                  <li className="text-black p-2 hover:bg-green-300 rounded-lg">
+                    Create a post
+                  </li>
+                </Link>
+                <Link
+                  href={"/userposts"}
+                  onClick={() => setOpenUserMenu(false)}
+                >
+                  <li className="text-black p-2 hover:bg-green-300 rounded-lg">
+                    My posts
+                  </li>
+                </Link>
+              </>
+            )}
+            <li
+              className="text-black p-2 hover:bg-green-300 rounded-lg cursor-pointer"
+              onClick={() => signOut()}
+            >
+              Sign out
+            </li>
+          </ul>
+        )}
+
         <NavbarToggle />
       </div>
       <NavbarCollapse className="">

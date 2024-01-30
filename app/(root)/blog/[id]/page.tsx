@@ -58,8 +58,12 @@ const BlogFolio = ({ searchParams }: { searchParams: searchParamsTypes }) => {
               width={500}
               height={500}
               alt="author image"
-
+              className="rounded-full w-20 h-20 object-cover"
             />
+            <div className="flex gap-2">
+              <span>{post.authorName}</span>
+              <span>{post.publishDate}</span>
+            </div>
           </div>
         </article>
       </div>
