@@ -62,7 +62,7 @@ const Header: React.FC<HeaderProps> = ({ user }) => {
         )}
 
         {openUserMenu && (
-          <ul className="z-10 absolute right-12 top-[70px] w-48 bg-white shadow-md rounded-md p-4">
+          <ul className="z-10 fixed top-[70px] w-48 bg-white shadow-md rounded-md p-4">
             {user.email === "bobonea.razvan.ctin@gmail.com" && (
               <>
                 <Link href={"/create"} onClick={() => setOpenUserMenu(false)}>
