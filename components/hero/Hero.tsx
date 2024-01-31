@@ -2,10 +2,13 @@
 import { Button } from "flowbite-react";
 import TextEffect from "../textEffect/TextEffect";
 import Image from "next/image";
-import { blogData } from "@/constants/blogData";
 import Link from "next/link";
+import { PostTypes } from "@/types/postTypes";
+import { formatDate } from "@/utils/formatDate";
 
-const Hero = () => {
+const Hero: React.FC<{posts: PostTypes[]}> = ({ posts }) => {
+
+
   const handleDownloadResume = () => {
     const resumePath = "/files/RazvanBobonea.pdf";
     const link = document.createElement("a");
@@ -16,7 +19,7 @@ const Hero = () => {
     document.body.removeChild(link);
   };
 
-  const featuredPost = blogData.filter((blog) => blog.featured === true);
+  const featuredPost = posts.filter((p) => p.featured === true);
 
   const topFeature = featuredPost.slice(0, 1);
 
@@ -77,30 +80,32 @@ const Hero = () => {
               className="flex flex-col gap-5 mb-5 text-center relative items-center"
             >
               <span
-                className={
-                  post.tags.includes("Frontend")
-                    ? "bg-pink-800 text-white py-2 w-[50%] flex items-center justify-center rounded-lg"
-                    : ""
-                }
+                className="bg-green-600 text-white py-2 w-[50%] flex items-center justify-center rounded-lg uppercase"
+                
               >
-                {post.tags}
+                {post.category}
               </span>
               <h2 className="text-6xl font-bold uppercase">{post.title}</h2>
               <div className="flex items-center gap-3 justify-center">
-                <div className="w-10 h-10 rounded-full bg-black"></div>
-                <span>{post.authorName}</span>
-                <span>{post.publishDate}</span>
+                {post.user.image && (
+                  <Image 
+                    src={post.user.image}
+                    width={50}
+                    height={50}
+                    alt={`${post.user.name} avatar`}
+                    className="rounded-full"
+                  />
+                )}
+                <span>{post.user.name}</span>
+                <span>{formatDate(post.createdAt)}</span>
               </div>
 
               <Link
-                href={{
-                  pathname: `/blog/${post.id}`,
-                  query: { ...post },
-                }}
+                href={`/blog/${post.id}`}
               >
                 <div className="relative max-h-[600px] overflow-hidden shadow-xl">
                   <Image
-                    src="/images/coderjpg.webp"
+                    src={post.imag}
                     alt={`${post.title}`}
                     width={500}
                     height={500}
@@ -117,30 +122,27 @@ const Hero = () => {
             {bottomFeature.map((post, index) => (
               <article className="flex flex-col gap-3 items-center text-center relative">
                   <div className="relative overflow-hidden h-72 shadow-xl w-full">
-                    <Link href={{
-                        pathname: `/blog/${post.id}`,
-                        query: {...post}
-                        }}
+                    <Link href={`/blog/${post.id}`}
                         className="w-full"
                     >
                         <div className="w-full h-full">
                           <Image
-                            src="/images/coderjpg.webp"
+                            src={post.imag}
                             alt={`${post.title}`}
-                            objectFit="contain"
+                            objectFit="cover"
                             layout="fill"
-                            className="hover:scale-105 transition-all duration-500 ease-in-out"
+                            className="hover:scale-105 transition-all duration-500 ease-in-out bg-gray-600"
                           />
                         </div>
                     </Link>
                   </div>
-                <span className="bg-pink-800 text-white px-2 rounded-lg">
-                  {post.tags}
+                <span className="bg-green-600 text-white px-2 py-1 rounded-full uppercase">
+                  {post.category}
                 </span>
                 <h3 className="text-sm font-bold uppercase text-gray-500">
                   {post.title}
                 </h3>
-                <span className="text-gray-400 italic">{post.publishDate}</span>
+                <span className="text-gray-400 italic">{post.user.name}</span>
               </article>
             ))}
           </div>

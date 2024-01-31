@@ -1,13 +1,16 @@
 "use client";
-import { blogData } from "@/constants/blogData";
 import { Button } from "flowbite-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { PostTypes } from "@/types/postTypes";
+import { formatDate } from "@/utils/formatDate";
 
-const TopPosts = () => {
-  const topPosts = blogData.filter((blog) => blog.topPost === true);
-  const [visibleBlogs, setVisibleBlogs] = useState(4);
+
+
+const TopPosts: React.FC<{ posts: PostTypes[] }> = ({ posts }) => {
+  const topPosts = posts.filter((p) => p.topPost === true);
+  const [visibleBlogs, setVisibleBlogs] = useState(3);
   const showMoreBlogs = () => {
     setVisibleBlogs((prev) => prev + 2);
   };
@@ -26,30 +29,27 @@ const TopPosts = () => {
         {topPosts.slice(0, visibleBlogs).map((post, index) => (
           <article key={index}>
             <Link
-              href={{
-                pathname: `/blog/${post.id}`,
-                query: { ...post },
-              }}
+              href={`/blog/${post.id}`}
             >
               <div className="relative cursor-pointer">
                 <Image
-                  src="/images/coderjpg.webp"
+                  src={post.imag}
                   width={800}
                   height={800}
-                  alt="image top post"
+                  alt={`${post.title}`}
                 />
               </div>
               <div className="w-full flex justify-center">
                 <span className="bg-yellow-600 px-2 py-1 rounded-full mt-3 text-white">
-                  {post.tags}
+                  {post.category}
                 </span>
               </div>
               <h3 className="font-bold uppercase text-gray-500 text-center">
                 {post.title}
               </h3>
               <div className="flex gap-3 justify-center mt-2 lg:flex-row 4xs:flex-col">
-                <span className="text-gray-400">{post.authorName}</span>
-                <span className="italic text-gray-400">{post.publishDate}</span>
+                <span className="text-gray-400">{post.user.name}</span>
+                <span className="italic text-gray-400">{formatDate(post.createdAt)}</span>
               </div>
             </Link>
           </article>

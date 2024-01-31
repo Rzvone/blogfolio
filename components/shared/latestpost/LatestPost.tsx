@@ -1,12 +1,12 @@
 'use client'
 import { useState } from 'react'
-import { blogData } from '@/constants/blogData';
 import BlogCard from '../blogcard/BlogCard';
 import { Button } from 'flowbite-react';
+import { PostTypes } from '@/types/postTypes';
 
-const LatestPost = () => {
+const LatestPost:React.FC<{posts: PostTypes[]}> = ({posts}) => {
 
-    const latestPosts = blogData.filter((blog) => blog.latestPost === true)
+    const latestPost = posts.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
 
     const [visibleBlogs, setVisibleBlogs] = useState(3)
     const showMoreBlogs = () => {
@@ -21,12 +21,12 @@ const LatestPost = () => {
             </h2>
         </div>
         <div className='flex flex-col gap-10 h-full'>
-            {latestPosts
+            {latestPost
                 .slice(0, visibleBlogs)
                 .map((post, index) => (
                 <BlogCard post={post} key={index} />
             ))}
-            {visibleBlogs < latestPosts.length && (
+            {visibleBlogs < latestPost.length && (
             <div className='flex justify-center'>
                 <Button
                     onClick={showMoreBlogs}

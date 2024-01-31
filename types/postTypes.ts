@@ -2,7 +2,7 @@ import { User } from '@prisma/client'
 
 export interface PostTypes {
     id: string
-    img: string
+    imag: string
     title: string
     desc: string
     featured: boolean

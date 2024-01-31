@@ -34,7 +34,7 @@ const Header: React.FC<HeaderProps> = ({ user }) => {
     <Navbar className="flex flex-row bg-[#130019] text-white fixed w-full z-[1000] shadow-xl select-none">
       <Link
         href="/"
-        className="font-semibold 2xs:text-xl md:text-4xl p-2"
+        className="font-semibold 2xs:text-3xl md:text-4xl p-2"
         draggable={false}
       >
         raz<span className="text-green-700">van</span>
@@ -49,7 +49,6 @@ const Header: React.FC<HeaderProps> = ({ user }) => {
         )}
         {user && (
           <div className="flex gap-5 items-center flex-1 justify-end max-md:hidden">
-            <h1>{user.name}</h1>
             <Image
               src={user.image as string}
               width={50}
@@ -134,6 +133,40 @@ const Header: React.FC<HeaderProps> = ({ user }) => {
         >
           Blog
         </NavbarLink>
+        {user?.email === "bobonea.razvan.ctin@gmail.com" && (
+          <>
+            <NavbarLink
+              className="md:hidden text-white font-semibold hover:text-yellow-600 rounded-md text-center border-none md:text-xl 3xs:text-xl p-2 mb-2 mt-2"
+              href="/create"
+              draggable={false}
+            >
+              Create a post
+            </NavbarLink>
+            <NavbarLink
+              className="md:hidden text-white font-semibold hover:text-yellow-600 rounded-md text-center border-none md:text-xl 3xs:text-xl p-2 mb-2 mt-2"
+              href="/userposts"
+              draggable={false}
+            >
+              My Posts
+            </NavbarLink>
+            <NavbarLink
+              className="md:hidden text-white font-semibold hover:text-yellow-600 rounded-md text-center border-none md:text-xl 3xs:text-xl p-2 mb-2 mt-2"
+              draggable={false}
+              onClick={() => signOut()}
+            >
+              Sign Out
+            </NavbarLink>
+          </>
+        )}
+        {user?.email !== "bobonea.razvan.ctin@gmail.com" && user && (
+          <NavbarLink
+            className="text-white font-semibold hover:text-yellow-600 rounded-md text-center border-none md:text-xl 3xs:text-xl p-2 mb-2 mt-2"
+            draggable={false}
+            onClick={() => signOut()}
+          >
+            Sign Out
+          </NavbarLink>
+        )}
       </NavbarCollapse>
     </Navbar>
   );

@@ -34,7 +34,7 @@ const CreateForm = ({ user }: { user: userTypes }) => {
 
   return (
     <div className="min-h-screen mt-12 mx-auto w-full max-w-3xl px-4">
-        <div className="bg-white py-8 shadow rounded-lg px-10">
+        <div className="bg-white py-10 shadow rounded-lg px-10">
             <h1 className="text-center text-2xl font-bold mb-10">
                 Create a post
             </h1>
@@ -48,8 +48,6 @@ const CreateForm = ({ user }: { user: userTypes }) => {
                             <SingleImageDropzone
                                 onChange={(file) => setFile(file)}
                                 value={file}
-                                // width={300}
-                                // height={100}
                             />
                         <Form
                             action={createPost}
@@ -69,7 +67,7 @@ const CreateForm = ({ user }: { user: userTypes }) => {
                             <textarea
                                 required
                                 name="description"
-                                rows={10}
+                                rows={25}
                                 placeholder="Description of the post..."
                                 className="text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400
                                 focus:ring-2 focus:ring-emerald-400 sm:text-sm sm:leading-6 border w-full border-gray-200 p-2 rounded-md
