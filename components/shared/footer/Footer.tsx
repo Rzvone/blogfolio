@@ -6,7 +6,7 @@ const Footer = () => {
 
 
   return (
-    <div className='flex w-full bg-[#130019] text-white h-[80px] items-center justify-between select-none'>
+    <footer className='flex w-full bg-[#130019] text-white h-[80px] items-center justify-between select-none '>
         <div className='ml-10 4xs:hidden md:flex'>
           <h6>&copy; Copyright 2024</h6>
         </div>
@@ -66,7 +66,7 @@ const Footer = () => {
             Blog
           </Link>
         </div>
-    </div>
+    </footer>
   )
 }
 

@@ -11,7 +11,7 @@ const BlogCard: React.FC<{ post: PostTypes }> = ({ post }) => {
             src={post?.imag}
             layout="fill"
             alt="blog image"
-            objectFit="fill"
+            objectFit="cover"
             className="bg-gray-400"
           />
         </div>

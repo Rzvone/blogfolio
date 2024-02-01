@@ -24,10 +24,9 @@ const DeletePost: React.FC<{post: PostTypes}> = ({ post }) => {
 
 
   return (
-    <div className="w-full mt-2">
+    <div className="w-full mt-2 mb-10 flex justify-center">
         <Button
             onClick={handleDelete}
-            className="w-full"
             color='failure'
         >
             {showModal && (

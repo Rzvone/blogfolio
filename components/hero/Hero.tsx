@@ -143,6 +143,9 @@ const Hero: React.FC<{posts: PostTypes[]}> = ({ posts }) => {
                   {post.title}
                 </h3>
                 <span className="text-gray-400 italic">{post.user.name}</span>
+                <span className="text-gray-400 italic">
+                  {formatDate(post.createdAt)}
+                </span>
               </article>
             ))}
           </div>
