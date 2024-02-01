@@ -6,7 +6,7 @@ import { formatDate } from "@/utils/formatDate";
 
 
 const getData = async (id: string) => {
-  const res = await fetch(`http://localhost:3000/api/blog/${id}`,
+  const res = await fetch(`https://razvanbobonea.vercel.app/blog/api/blog/${id}`,
   {
     cache: 'no-store'
   })
