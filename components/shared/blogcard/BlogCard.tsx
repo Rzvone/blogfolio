@@ -17,10 +17,10 @@ const BlogCard: React.FC<{ post: PostTypes }> = ({ post }) => {
         </div>
         <div className="absolute w-full h-full top-0 p-5 flex flex-col justify-between">
           <div>
-            <span className="bg-yellow-800 px-5 text-white rounded-lg py-1">
+            <span className="bg-yellow-800 px-5 text-white rounded-lg py-1 uppercase">
               {post?.category}
-            </span>
-            <h3 className="text-3xl font-bold uppercase text-white mt-3">
+            </span> 
+            <h3 className="text-2xl font-bold uppercase text-white mt-3">
               {post?.title}
             </h3>
           </div>

@@ -40,7 +40,7 @@ const TopPosts: React.FC<{ posts: PostTypes[] }> = ({ posts }) => {
                 />
               </div>
               <div className="w-full flex justify-center">
-                <span className="bg-yellow-600 px-2 py-1 rounded-full mt-3 text-white">
+                <span className="bg-yellow-600 px-2 py-1 rounded-full mt-3 text-white uppercase my-5">
                   {post.category}
                 </span>
               </div>
@@ -48,8 +48,6 @@ const TopPosts: React.FC<{ posts: PostTypes[] }> = ({ posts }) => {
                 {post.title}
               </h3>
               <div className="flex gap-3 justify-center mt-2 lg:flex-row 4xs:flex-col">
-                <span className="text-gray-400">{post.user.name}</span>
-                <span className="italic text-gray-400">{formatDate(post.createdAt)}</span>
               </div>
             </Link>
           </article>

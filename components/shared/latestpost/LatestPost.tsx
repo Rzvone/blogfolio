@@ -27,7 +27,7 @@ const LatestPost:React.FC<{posts: PostTypes[]}> = ({posts}) => {
                 <BlogCard post={post} key={index} />
             ))}
             {visibleBlogs < latestPost.length && (
-            <div className='flex justify-center'>
+            <div className='flex'>
                 <Button
                     onClick={showMoreBlogs}
                     gradientDuoTone='pinkToOrange'

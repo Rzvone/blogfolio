@@ -70,8 +70,8 @@ const Posts: React.FC<{ posts: PostTypes[] }> = ({ posts }) => {
                 <BlogCard post={p} key={id} />
             ))}
             {visibleBlogs < posts.length && (
-                <div className='flex justify-center'>
-                    <Button onClick={showMoreBlogs}>
+                <div className='flex'>
+                    <Button onClick={showMoreBlogs} gradientDuoTone='pinkToOrange' className='hover:text-black font-semibold italic px-4'>
                         Show More
                     </Button>
                 </div>
