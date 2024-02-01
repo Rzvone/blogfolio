@@ -44,6 +44,7 @@ model User {
   accounts      Account[]
   sessions      Session[]
   blogs Blog[]
+  projects Project[]
 }
 
 model VerificationToken {
@@ -62,6 +63,19 @@ model Blog {
     desc         String
     imag         String?
     category     String
+    userEmail    String
+    featured     Boolean @default(false)
+    topPost      Boolean @default(false)
+    user User @relation(fields: [userEmail], references: [email])
+}
+
+model Project {
+    id           String    @id @default(cuid()) @map("_id")
+    createdAt    DateTime  @default(now())
+    title        String
+    desc         String
+    imag         String?
+    category     String[]
     userEmail    String
     featured     Boolean @default(false)
     topPost      Boolean @default(false)

@@ -44,6 +44,18 @@ const Hero: React.FC<{posts: PostTypes[]}> = ({ posts }) => {
             expertise, as I continue to push the boundaries of what&apos;s
             possible in the world of web development.
           </p>
+          <p className="mt-[1.5rem] text-[18px] text-gray-400">
+            Beyond showcasing my work, this website also serves as a platform for 
+            sharing knowledge and experiences with aspiring developers. Through my 
+            blog-folio, I aim to break down complex concepts into digestible chunks, 
+            making web development accessible to beginners and enthusiasts alike. 
+            Whether you&apos;re just starting out or looking to expand your skill set. 
+          </p>
+          <p className="mt-[1.5rem] text-[18px] text-gray-400">
+            By sharing my insights and experiences, I hope to foster a community of 
+            learning and growth. Together, we can explore the ever-evolving world of 
+            web development and empower each other to become more well-rounded developers.
+          </p>
           <div className="flex gap-5 mt-5 md:flex-row 3xs:flex-col">
             <Button
               gradientDuoTone="purpleToPink"
