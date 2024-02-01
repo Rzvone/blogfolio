@@ -4,9 +4,9 @@ import { AiOutlineFacebook, AiOutlineInstagram, AiOutlineLinkedin } from "react-
 import { PostTypes } from "@/types/postTypes";
 import { formatDate } from "@/utils/formatDate";
 
-
+// this function fetches the data from the api and does not store it in the cache
 const getData = async (id: string) => {
-  const res = await fetch(`https://razvanbobonea.vercel.app/blog/api/blog/${id}`,
+  const res = await fetch(`https://razvanbobonea.vercel.app/blog/api/blog/${id}`, // change this to localhost:3000 if you want to run it locally
   {
     cache: 'no-store'
   })
