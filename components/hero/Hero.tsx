@@ -91,12 +91,6 @@ const Hero: React.FC<{posts: PostTypes[]}> = ({ posts }) => {
               key={index}
               className="flex flex-col gap-5 mb-5 text-center relative items-center"
             >
-              <span
-                className="bg-green-600 text-white py-2 w-[50%] flex items-center justify-center rounded-lg uppercase"
-                
-              >
-                {post.category}
-              </span>
               <h2 className="text-6xl font-bold uppercase">{post.title}</h2>
               <div className="flex items-center gap-3 justify-center">
                 {post.user.image && (
@@ -115,7 +109,7 @@ const Hero: React.FC<{posts: PostTypes[]}> = ({ posts }) => {
               <Link
                 href={`/blog/${post.id}`}
               >
-                <div className="relative max-h-[600px] overflow-hidden shadow-xl">
+                <div className="relative max-h-[600px] overflow-hidden shadow-xl mb-3">
                   <Image
                     src={post.imag}
                     alt={`${post.title}`}
@@ -127,6 +121,12 @@ const Hero: React.FC<{posts: PostTypes[]}> = ({ posts }) => {
                     // change maby for different type of images or not
                   />
                 </div>
+                <span
+                className="bg-green-600 text-white px-2 py-1 rounded-full uppercase"
+                
+              >
+                {post.category}
+              </span>
               </Link>
             </article>
           ))}

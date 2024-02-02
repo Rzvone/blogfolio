@@ -7,14 +7,14 @@ import { useState } from 'react';
 
 const Projectz = () => {
 
-    const [visibleProjects, setVisibleProjects] = useState(4)
+    const [visibleProjects, setVisibleProjects] = useState(6)
     const showMoreProjects = () => {
-        setVisibleProjects((prev) => prev + 2)
+        setVisibleProjects((prev) => prev + 3)
     }
 
 
   return (
-    <section aria-labelledby='projects'>
+    <section aria-labelledby='projects' className='min-h-[60vh]'>
         <div className='w-full text-center'>
             <h2
                 id='projects'
@@ -23,7 +23,7 @@ const Projectz = () => {
                 Projects
             </h2>
         </div>
-        <div className='flex h-full flex-col gap-12 items-center'>
+        <div className='grid lg:grid-cols-3 md:grid-cols-2 4xs:grid-cols-1 h-full gap-12 items-center'>
             {projectsData.slice(0, visibleProjects).map((project, i) => (
                 <div key={i}>
                     <Link
@@ -34,14 +34,14 @@ const Projectz = () => {
                     >
                         <div className='relative cursor-pointer'>
                             <Image 
-                                src='/images/developer.webp'
+                                src={project.image_path}
                                 width={800}
                                 height={800}
                                 alt='image project'
                             />
                         </div>
-                        <div className='w-full flex justify-center'>
-                            <span className='bg-yellow-600 px-2 py-1 rounded-full mt-3 text-white'>
+                        <div className='w-full flex justify-center my-5'>
+                            <span className='bg-yellow-600 px-2 py-1 rounded-full mt-3 text-white uppercase'>
                                 {project.tags}
                             </span>
                         </div>
@@ -55,19 +55,20 @@ const Projectz = () => {
                     </Link>
                 </div>
             ))}
-            {visibleProjects < projectsData.length && (
-                <div className='flex justify-center'>
+            
+        </div>
+        {visibleProjects < projectsData.length && (
+                <div className='flex w-full justify-center mt-10'>
                     <Button
                         onClick={showMoreProjects}
                         gradientDuoTone='pinkToOrange'
-                        className='hover:text-black font-semibold italic px-4'
+                        className='hover:text-black font-semibold italic px-4 w-full'
                     >
                         Show More
                     </Button>
                 </div>
             
             )}
-        </div>
     </section>
   )
 }

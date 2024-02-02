@@ -1,17 +1,17 @@
 export const projectsData = [
   {
     id: 1,
-    title: "Project 1",
-    image_path: "/images/developer.webp",
+    title: "Pizza Order Website",
+    image_path: "/project/pizza.png",
     paragraph:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      "This was a team project by that time, as a team we have learned just the basics of WEB development. Throughout this project we managed to create a website for the fictional local pizza joint 'PizzaExpress. The website was created using HTML, CSS, and JavaScript. The website was created to allow customers to order pizza online and have it delivered to their door. The website was created to be responsive and user-friendly. The website was created to be responsive and user-friendly.",
     featured: true,
     topPost: true,
-    tags: ["Frontend"],
+    tags: ["full-stack"],
     authorImage:
       "/assets/programmer.jpg",
-    authorName: "Razvan",
-    publishDate: "September 27, 2023",
+    authorName: "Razvan, Alex and Mihnea",
+    publishDate: "May, 2022",
   },
   {
     id: 2,

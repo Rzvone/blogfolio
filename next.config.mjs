@@ -1,8 +1,24 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    images: {
-        domains: ["unsplash.com", "lh3.googleusercontent.com", 'files.edgestore.dev']
-      }
+  images: {
+    remotePatterns: [
+        {
+            protocol: 'https',
+            hostname: 'unsplash.com',
+            pathname: '**',
+        },
+        {
+            protocol: 'https',
+            hostname: 'lh3.googleusercontent.com',
+            pathname: '**',
+        },
+        {
+            protocol: 'https',
+            hostname: 'files.edgestore.dev',
+            pathname: '**',
+        },
+    ],
+  },
 };
 
 export default nextConfig;
