@@ -39,6 +39,7 @@ const Projectz = () => {
                                 height={800}
                                 alt='image project'
                             />
+
                         </div>
                         <div className='w-full flex justify-center my-5'>
                             <span className='bg-yellow-600 px-2 py-1 rounded-full mt-3 text-white uppercase'>

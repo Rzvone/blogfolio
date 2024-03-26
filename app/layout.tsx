@@ -34,7 +34,7 @@ export default async function RootLayout({
           <body className={`${inter.className} overflow-x-hidden bg-light`}>
             <Header user={user as any} />
             <div className="h-[5vh]"></div>
-            {children}
+              {children}
             <Footer />
           </body>
         </EdgeStoreProvider>

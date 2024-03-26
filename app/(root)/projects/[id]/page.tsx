@@ -1,5 +1,6 @@
 import { Button } from "flowbite-react";
 import Image from "next/image";
+import Link from "next/link";
 
 interface searchParamsTypes {
     id: string;
@@ -12,9 +13,12 @@ interface searchParamsTypes {
     authorImage: string;
     authorName: string;
     publishDate: string;
+    websiteLink: string;
+    technologies: string[];
 }
 
 const ProjectFolio = ({ searchParams }: { searchParams: searchParamsTypes }) => {
+
 
   const project = searchParams
 
@@ -38,6 +42,14 @@ const ProjectFolio = ({ searchParams }: { searchParams: searchParamsTypes }) => 
           <p className="text-xl">
             {project.paragraph}
           </p>
+          <div className="w-full text-center">
+            <h3 className="text-2xl font-bold text-gray-500 mt-10">Technologies</h3>
+            <div className="flex gap-5 mt-5 items-center justify-center">
+            {project.technologies.map((tag, i) => (
+              <span key={i} className="bg-pink-700 px-2 py-1 rounded-full text-white text-center uppercase">{tag}</span>
+            ))}
+            </div>
+          </div>
           <div className="mt-5 flex gap-5 items-center">
             <Image 
               src={project.authorImage}
@@ -53,10 +65,17 @@ const ProjectFolio = ({ searchParams }: { searchParams: searchParamsTypes }) => 
           </div>
         </article>
       </div>
-        <div className="mt-10 w-full flex items-center justify-center">
-          <Button className="px-3 py-2">
-            GitHub
-          </Button>
+        <div className="mt-10 w-full flex items-center justify-center gap-5">
+          <Link href="https://github.com/Rzvone">
+            <Button className="px-3 py-2">
+              GitHub
+            </Button>
+          </Link>
+          <Link href={`${project.websiteLink}`}>
+            <Button className="px-3 py-2">
+              Live Demo
+            </Button>
+          </Link>
         </div>
     </div>
   )
